@@ -44,7 +44,7 @@ function displayTemperature (response) {
     weather_icon.setAttribute("alt", response.data.weather[0].description);
 
 }
-    let city_name = "minsk";
+    let city_name = "murmansk";
     let api_Key = '53ebcd69e2df003588fbe1573582f02b';
     let api_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${api_Key}&units=metric`;
     
