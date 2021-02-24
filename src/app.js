@@ -23,7 +23,7 @@ function formatData (timestamp){
 
 
 function displayTemperature (response) {
-    console.log(response.data);
+    //console.log(response.data);
     let temperature_view = document.querySelector("#temperature");
     let city_view = document.querySelector("#city");
     let weather_discription = document.querySelector("#weather_description");
@@ -50,18 +50,3 @@ function displayTemperature (response) {
 
 
 
-/*function displayWeather(response) {
-        let weatherDiv = document.querySelector("#weather");
-        let temperature = Math.round(response.data.main.temp);
-        let description = response.data.weather[0].description;
-
-        weatherDiv.innerHTML = `It is ${temperature} degrees, ${description}, in ${
-          response.data.name
-        }`;
-      }
-
-      let city = "Rome";
-      let Apikey = "5f472b7acba333cd8a035ea85a0d4d4c";
-      let APiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Apikey}&units=metric`;
-
-      axios.get(url).then(displayWeather);*/
