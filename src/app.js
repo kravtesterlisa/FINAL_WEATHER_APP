@@ -1,3 +1,9 @@
+//TODO:
+//- execute "search" by clicking on button //
+
+
+//Functions:
+///////////////
 function formatData (timestamp){
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -11,16 +17,7 @@ function formatData (timestamp){
     let week_days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     let day = week_days[date.getDay()];
     return `${day} ${hours}:${minutes}`;
-
-
-
-
-
 }
-
-
-
-
 
 function displayTemperature (response) {
     console.log(response.data);
@@ -44,11 +41,26 @@ function displayTemperature (response) {
     weather_icon.setAttribute("alt", response.data.weather[0].description);
 
 }
-    let city_name = "murmansk";
-    let api_Key = '53ebcd69e2df003588fbe1573582f02b';
-    let api_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${api_Key}&units=metric`;
+
+function searchByInput (cityName){
     
+    let api_Key = '53ebcd69e2df003588fbe1573582f02b';
+    let api_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api_Key}&units=metric`;
     axios.get(api_URL).then(displayTemperature);
+}
+
+function searchCity(event) {
+    event.preventDefault();
+    let cityName = document.querySelector("#input-city").value;
+    console.log(cityName);
+    searchByInput(cityName);
+}
+
+// Code:
+///////////////
+let form_search = document.querySelector("#search-form");
+form_search.addEventListener("submit", searchCity);
+
 
 
 
