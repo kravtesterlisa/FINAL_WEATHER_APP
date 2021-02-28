@@ -1,5 +1,4 @@
-//TODO:
-//- execute "search" by clicking on button //
+
 
 
 //Functions:
@@ -28,6 +27,9 @@ function displayTemperature (response) {
     let wind_speed = document.querySelector("#wind_speed");
     let current_date = document.querySelector("#date_time");
     let weather_icon = document.querySelector("#icon");
+
+    celsiusTemperature = response.data.main.temp;
+
     temperature_view.innerHTML = Math.round(response.data.main.temp);
     city_view.innerHTML = response.data.name;
     weather_discription.innerHTML = response.data.weather[0].description;
@@ -56,11 +58,32 @@ function searchCity(event) {
     searchByInput(cityName);
 }
 
+function farenheitTemperature(event) {
+    event.preventDefault();
+    let farenheitValue = Math.round((celsiusTemperature * 9)/5 + 32);
+    let temperature_view = document.querySelector("#temperature");
+    temperature_view.innerHTML = farenheitValue;
+   
+}
+
+function celsiusReturn(event) {
+    event.preventDefault();
+    let temperature_view = document.querySelector("#temperature");
+    temperature_view.innerHTML = Math.round(celsiusTemperature);
+}
+
 // Code:
 ///////////////
 let form_search = document.querySelector("#search-form");
 form_search.addEventListener("submit", searchCity);
 
 
+let farenheitConversion = document.querySelector("#conversation-f");
+farenheitConversion.addEventListener("click", farenheitTemperature);
+
+let celsiusConversation = document.querySelector("#conversation-c");
+celsiusConversation.addEventListener("click", celsiusReturn)
+
+let celsiusTemperature = null; 
 
 
