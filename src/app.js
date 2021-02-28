@@ -71,12 +71,12 @@ function displayWeatherForecast(response){
 
     let forecastElement = document.querySelector("#weather-forecast");
     let forecast = null;
+    let forecastRow = ``;
 
     for (let index = 0; index < 6; index++) {
-
+        
         forecast = response.data.list[index];
-        forecastElement.innerHTML += `
-        <div class="col-2">
+        forecastRow += `<div class="col-2">
         <h7 class="hours">
             ${formatHours(forecast.dt * 1000)}
             </h7>
@@ -86,11 +86,10 @@ function displayWeatherForecast(response){
                 ${Math.round(forecast.main.temp_min)}°
             </div>
         </div>`;
+        
     }
+    forecastElement.innerHTML = forecastRow;
 
-    
-    
-   
 }   
 
 
