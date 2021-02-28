@@ -48,9 +48,33 @@ ul {
   position: relative;
   top: -8px;
   font-size: 16px;
-  text-decoration: none;
 }
 .weather-parameters {
   display: block;
   padding: 10px;
+}
+
+.forecast-weather {
+  margin-top: 10px;
+}
+
+.forecast-weather img {
+  display: block;
+
+  margin: 0 auto;
+
+  height: 50px;
+  width: 50px;
+}
+.forecast-temperature {
+  text-align: center;
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.hours {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
 }
